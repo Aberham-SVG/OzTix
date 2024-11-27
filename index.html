@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OzTix Ticket Submission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column; /* Allow vertical stacking */
+        }
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px; /* Add spacing below the logo */
+        }
+        .logo-container img {
+            width: 150px; /* Set logo size */
+            height: auto;
+        }
+        .container {
+            background: #ffffff;
+            padding: 20px 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            text-align: left;
+        }
+        input, select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+        .row {
+            display: flex;
+            gap: 30px; /* Add spacing between input fields */
+        }
+        .row .half-width {
+            width: 100%;
+        }
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+        button {
+            background-color: #af0b00;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        button:hover {
+            background-color: #c64000;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="assets/images/logo.png" alt="OzTix Logo">
+    </div>
+    <div class="container">
+        <h1>Submit a Ticket</h1>
+        <form id="ticketForm">
+            <div class="row">
+                <div class="half-width">
+                    <label for="user">Submitting User</label>
+                    <input type="text" id="user" name="user" required>
+                </div>
+                <div class="half-width">
+                    <label for="teller">Teller Number</label>
+                    <input type="text" id="teller" name="teller" required>
+                </div>
+            </div>
+
+            <label for="branch">Branch</label>
+            <select id="branch" name="branch" required style="width: 104%;">
+                <option value="" disabled selected>Select Branch</option>
+                <option value="Main">Main</option>
+                <option value="Downtown">Downtown</option>
+                <option value="Dexter">Dexter</option>
+                <option value="Doniphan">Doniphan</option>
+                <option value="Piedmont">Piedmont</option>
+            </select>
+
+            <label for="category">Issue Category</label>
+            <select id="category" name="category" required style="width: 104%;">
+                <option value="" disabled selected>Select Category</option>
+                <option value="Printers/Scanners">Printers/Scanners</option>
+                <option value="Flex Juice">Flex Juice</option>
+                <option value="Flex 10">Flex 10</option>
+                <option value="PC Issue">PC Issue</option>
+            </select>
+
+            <label for="details">Ticket Details</label>
+            <textarea id="details" name="details" placeholder="Describe the issue in detail..." required></textarea>
+
+            <button type="submit">Submit Ticket</button>
+        </form>
+    </div>
+
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+        const SUPABASE_URL = 'https://kxlnngklfrzneluptrxo.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt4bG5uZ2tsZnJ6bmVsdXB0cnhvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzIyMDEyMDEsImV4cCI6MjA0Nzc3NzIwMX0.LICyDb7J1Dip6jN2A6dADPaSQIa44SHm5Lc3n4lx3ck'; // Replace with your actual key
+        const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        const form = document.getElementById('ticketForm');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const user = document.getElementById('user').value;
+            const teller = document.getElementById('teller').value;
+            const branch = document.getElementById('branch').value;
+            const category = document.getElementById('category').value;
+            const details = document.getElementById('details').value;
+	    
+            // Generate a new ticket number
+            const { data: ticketData, error: ticketError } = await supabase
+                .from('tickets')
+                .select('id')
+                .order('id', { ascending: false })
+                .limit(1);
+
+            const lastId = ticketData?.[0]?.id || 0;
+            const ticketNumber = `OZ-${String(lastId + 1).padStart(4, '0')}`;
+
+            const { error } = await supabase.from('tickets').insert([ 
+                { user, teller, branch, category, details, ticket_number: ticketNumber }
+            ]);
+
+            if (error) {
+                alert('Error submitting ticket: ' + error.message);
+            } else {
+                window.location.href = `confirmation.html?ticketNumber=${ticketNumber}`;
+            }
+        });
+    </script>
+</body>
+</html>
