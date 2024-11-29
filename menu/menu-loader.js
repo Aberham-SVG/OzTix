@@ -1,3 +1,5 @@
+// Log a message when the script is loaded
+console.log('Menu loader script has been successfully loaded.');
 // Load the menu dynamically
 window.addEventListener('DOMContentLoaded', () => {
   fetch('menu.html')
