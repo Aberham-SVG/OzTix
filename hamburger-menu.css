@@ -1,35 +1,62 @@
-/* General styling */
-#hamburger-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-/* Circle icon */
-#menu-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #333;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  margin: 10px;
-}
-
-/* Sidebar */
+/* Styling for the sidebar */
 #menu-sidebar {
   position: fixed;
   top: 0;
-  left: -250px; /* Hidden by default */
+  left: -250px; /* Initially off-screen */
   width: 250px;
   height: 100%;
-  background-color: #444;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
-  transition: left 0.3s ease-in-out;
+  background-color: #333;
+  color: white;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  overflow-y: auto; /* Enable scrolling if content overflows */
+  transition: left 0.3s ease; /* Smooth slide-in and out animation */
+  z-index: 1000; /* Ensure it appears on top of other elements */
+}
+
+/* Active state for the sidebar (when menu is open) */
+#menu-sidebar.active {
+  left: 0; /* Slide into view */
+}
+
+/* Styling for the menu icon */
+#menu-icon {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: #333;
+  color: white;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px; /* Slight rounding for modern look */
+  z-index: 1100; /* Ensure it appears above the sidebar */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for the menu icon */
+#menu-icon:hover {
+  background-color: #555;
+}
+
+/* Optional: Style for sidebar content (future menu items) */
+#menu-sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#menu-sidebar ul li {
+  padding: 15px 20px;
+  border-bottom: 1px solid #444; /* Subtle divider between items */
+}
+
+#menu-sidebar ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  display: block;
+}
+
+#menu-sidebar ul li a:hover {
+  background-color: #555;
 }
