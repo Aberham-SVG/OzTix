@@ -26,18 +26,20 @@
   </div>
 
   <!-- JavaScript -->
-
-  <script src="hamburger-menu.js"></script>
-  
   <script>
-    // Toggle Menu Function
-    function toggleMenu() {
-      const sidebar = document.getElementById('menu-sidebar');
-      sidebar.classList.toggle('active'); // Add or remove the 'active' class
-    }
- 
-    // Attach Event Listener to Menu Icon
-   document.getElementById('menu-icon').addEventListener('click', toggleMenu);
- 
+    document.addEventListener('DOMContentLoaded', () => {
+      // Toggle Menu Function
+      function toggleMenu() {
+        const sidebar = document.getElementById('menu-sidebar');
+        sidebar.classList.toggle('active'); // Add or remove the 'active' class
+      }
+
+      // Attach Event Listener to Menu Icon
+      const menuIcon = document.getElementById('menu-icon');
+      if (menuIcon) {
+        menuIcon.addEventListener('click', toggleMenu);
+      }
+    });
+  </script>
 </body>
 </html>
