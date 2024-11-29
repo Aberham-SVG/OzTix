@@ -1,8 +1,14 @@
-// Get the menu and hamburger icon elements
-const menu = document.getElementById('menu');
-const hamburgerIcon = document.querySelector('.hamburger-icon');
+// Get the elements for the sidebar and hamburger button
+const sidebar = document.getElementById('sidebar');
+const hamburger = document.getElementById('hamburger');
+const closeSidebarBtn = document.getElementById('close-sidebar');
 
-// Toggle menu open/close
-hamburgerIcon.addEventListener('click', () => {
-    menu.classList.toggle('open'); // Open or close the sidebar
+// Toggle the sidebar when the hamburger button is clicked
+hamburger.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+});
+
+// Close the sidebar when the close button is clicked
+closeSidebarBtn.addEventListener('click', () => {
+    sidebar.classList.remove('open');
 });
