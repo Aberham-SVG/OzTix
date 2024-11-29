@@ -1,5 +1,5 @@
 <div id="hamburger-menu">
-  <div id="menu-icon" onclick="toggleMenu()">
+  <div id="menu-icon">
     ☰
   </div>
   <div id="menu-sidebar">
@@ -8,4 +8,13 @@
 </div>
 
 <link rel="stylesheet" href="hamburger-menu.css">
-<script src="hamburger-menu.js"></script>
+<script>
+  // Add the toggleMenu function inside the script tag
+  function toggleMenu() {
+    const menuSidebar = document.getElementById('menu-sidebar');
+    menuSidebar.classList.toggle('active'); // Toggle the 'active' class to show/hide the menu
+  }
+
+  // Attach the event listener for the menu icon
+  document.getElementById('menu-icon').addEventListener('click', toggleMenu);
+</script>
