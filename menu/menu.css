@@ -1,90 +1,37 @@
-/* Floating Icon */
-#menu-icon {
-  position: absolute;
-  top: 40px;
-  left: 100px;
-  width: 50px;
-  height: 50px;
-  background: #ae0b00;
-  border-radius: 50%;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 999;
+/* Hamburger Icon - positioned at the left */
+.hamburger-icon {
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    top: 20px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Floating effect */
+    border-radius: 50%; /* Rounded icon */
+    z-index: 10; /* Ensures the icon is above the sidebar */
+    transition: left 0.3s ease-in-out; /* Smooth transition for the button */
 }
 
-#menu-icon:hover {
-  transform: translateY(-2px);
-}
-
-#menu-icon .line {
-  width: 20px;
-  height: 3px;
-  background: white;
-  margin: 3px 0;
-  transition: all 0.3s ease;
-}
-
-/* Menu Dropdown */
-#menu-items {
-  position: fixed;
-  top: 70px;
-  left: 20px;
-  background: white;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  padding: 10px 15px;
-  width: 200px;
-  display: none;
-  z-index: 5;
-}
-
-#menu-items ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-#menu-items ul li {
-  margin: 10px 0;
-}
-
-#menu-items ul li a,
-#menu-items ul li button {
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-  display: block;
-  background: none;
-  border: none;
-  text-align: left;
-  width: 100%;
-  padding: 5px 0;
-  cursor: pointer;
-}
-
-#menu-items ul li a:hover,
-#menu-items ul li button:hover {
-  color: #007bff;
-}
-
-/* Mobile Full-Screen Menu */
-@media (max-width: 768px) {
-  #menu-items {
+/* Sidebar container */
+#menu {
+    position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: -250px; /* Initially off-screen */
+    width: 250px; /* Sidebar width */
     height: 100%;
-    border-radius: 0;
-    display: none;
-    padding-top: 70px;
-  }
+    background-color: #333;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    transition: left 0.3s ease-in-out; /* Slide effect for the menu */
+    z-index: 5; /* Menu is below the hamburger icon */
+}
 
-  #menu-items ul {
-    text-align: center;
-  }
+/* When the menu is active */
+#menu.open {
+    left: 0; /* Slide in the sidebar */
+}
+
+/* When the menu is active, move the hamburger icon along with the menu */
+#menu.open ~ .hamburger-icon {
+    left: 250px; /* Move icon to the right */
 }
