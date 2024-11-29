@@ -27,17 +27,21 @@
 
   <!-- JavaScript -->
   <script>
+    // Ensure the DOM is loaded before running this script
     document.addEventListener('DOMContentLoaded', () => {
       // Toggle Menu Function
       function toggleMenu() {
         const sidebar = document.getElementById('menu-sidebar');
         sidebar.classList.toggle('active'); // Add or remove the 'active' class
+        console.log('Menu toggled'); // Debugging log to verify functionality
       }
 
       // Attach Event Listener to Menu Icon
       const menuIcon = document.getElementById('menu-icon');
       if (menuIcon) {
         menuIcon.addEventListener('click', toggleMenu);
+      } else {
+        console.error('Menu icon not found!'); // Debugging error
       }
     });
   </script>
