@@ -1,16 +1,17 @@
-<div id="menu"> <!-- Sidebar -->
-    <!-- Add your menu items here -->
-    <ul>
-        <li><a href="#">Active Tickets</a></li>
-        <li><a href="#">Resolved Tickets</a></li>
-        <li><a href="#">Manage Users</a></li>
-    </ul>
+<!-- Hamburger Menu HTML (menu.html) -->
+<div id="menu-container">
+    <!-- Hamburger Icon -->
+    <button class="hamburger" id="hamburger">
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <ul>
+            <li><a href="#" id="open-tickets-link">Open Tickets</a></li>
+            <li><a href="#" id="resolved-tickets-link">Resolved Tickets</a></li>
+            <li><a href="#" id="manage-users-link">Manage & Add Users</a></li>
+            <li><button id="close-sidebar" class="close-btn">Close</button></li>
+        </ul>
+    </div>
 </div>
-
-<!-- Hamburger Button -->
-<button class="hamburger-icon">
-    <i class="fa fa-bars"></i>
-</button>
-
-<!-- Include this if you want to add FontAwesome icons -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
