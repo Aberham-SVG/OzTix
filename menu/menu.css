@@ -1,0 +1,90 @@
+/* Floating Icon */
+#menu-icon {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+  background: #007bff;
+  border-radius: 50%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+#menu-icon:hover {
+  transform: translateY(-2px);
+}
+
+#menu-icon .line {
+  width: 20px;
+  height: 3px;
+  background: white;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+}
+
+/* Menu Dropdown */
+#menu-items {
+  position: fixed;
+  top: 60px;
+  left: 10px;
+  background: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 10px 15px;
+  width: 200px;
+  display: none;
+  z-index: 1000;
+}
+
+#menu-items ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#menu-items ul li {
+  margin: 10px 0;
+}
+
+#menu-items ul li a,
+#menu-items ul li button {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  display: block;
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+#menu-items ul li a:hover,
+#menu-items ul li button:hover {
+  color: #007bff;
+}
+
+/* Mobile Full-Screen Menu */
+@media (max-width: 768px) {
+  #menu-items {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    display: none;
+    padding-top: 70px;
+  }
+
+  #menu-items ul {
+    text-align: center;
+  }
+}
