@@ -2,7 +2,7 @@
 console.log('Menu loader script has been successfully loaded.');
 // Load the menu dynamically
 window.addEventListener('DOMContentLoaded', () => {
-  fetch('menu.html')
+  fetch('menu/menu.html')
     .then((response) => response.text())
     .then((html) => {
       const placeholder = document.getElementById('menu-placeholder');
