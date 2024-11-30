@@ -1,71 +1,47 @@
-/* General Reset */
-body, ul, li, a, button {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  text-decoration: none;
-  box-sizing: border-box;
-}
-
-/* Hamburger Icon */
+/* Example CSS for the sidebar and hamburger icon */
 #hamburger-icon {
-  position: fixed;
-  top: 100px;
-  left: 150px;
-  z-index: 1000;
-  cursor: pointer;
-  background-color: #ae0b00;
-  color: #fff;
-  padding: 10px 15px;
-  border-radius: 5px;
-  font-size: 20px;
-  transition: transform 0.3s ease;
+    cursor: pointer;
+    font-size: 30px;
+    transition: opacity 0.3s ease; /* Smooth transition for hiding/showing */
 }
 
-/* Sidebar */
 #sidebar {
-  position: fixed;
-  top: 0;
-  left: -300px; /* Initially hidden */
-  width: 300px;
-  height: 100%;
-  background-color: #ae0b00;
-  color: #fff;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
-  padding-top: 20px;
-  transition: left 0.3s ease;
-  z-index: 999;
+    position: fixed;
+    left: -250px; /* Initially hidden off-screen */
+    top: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #333;
+    transition: left 0.3s ease;
+    padding-top: 20px;
 }
 
-/* Sidebar Content */
+#sidebar.open {
+    left: 0; /* Bring sidebar into view */
+}
+
 #sidebar ul {
-  padding: 20px;
+    list-style-type: none;
+    padding: 0;
 }
 
 #sidebar ul li {
-  margin: 15px 0;
+    padding: 8px;
+    text-align: left;
 }
 
 #sidebar ul li a {
-  color: #fff;
-  font-size: 18px;
+    color: white;
+    text-decoration: none;
+    display: block;
 }
 
 #close-btn {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 18px;
-  margin-left: 20px;
-  cursor: pointer;
-  text-align: left;
-}
-
-/* Active States */
-#sidebar.open {
-  left: 0;
-}
-
-#hamburger-icon.move {
-  transform: translateX(300px); /* Moves with the sidebar */
+    background: none;
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 10px;
+    display: block;
 }
