@@ -36,22 +36,21 @@
         </div>
     </div>
 
-    <div id="menu-placeholder"></div>
-
-    <!-- Load Hamburger Menu Script -->
+    <div id="menu-placeholder"></div> <!-- Menu will be injected here -->
+    
+    <!-- Include the menu JS -->
     <script src="menu/menu-loader.js"></script>
 
-    <!-- Load Supabase Script -->
+    <!-- Supabase Script -->
     <script type="module">
         import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
         const SUPABASE_URL = 'https://kxlnngklfrzneluptrxo.supabase.co';
-        const SUPABASE_KEY = 'YOUR_SUPABASE_KEY';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt4bG5uZ2tsZnJ6bmVsdXB0cnhvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzIyMDEyMDEsImV4cCI6MjA0Nzc3NzIwMX0.LICyDb7J1Dip6jN2A6dADPaSQIa44SHm5Lc3n4lx3ck';
         const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
         const ticketTableBody = document.getElementById('ticketTableBody');
 
-        // Load tickets from Supabase
         async function loadTickets() {
             const { data: tickets, error } = await supabase.from('tickets').select('*');
             if (error) {
@@ -90,7 +89,6 @@
             });
         }
 
-        // Delete ticket
         async function deleteTicket(id) {
             if (confirm('Are you sure you want to delete this ticket?')) {
                 const { error } = await supabase.from('tickets').delete().eq('id', id);
@@ -102,8 +100,7 @@
             }
         }
 
-        // Load tickets on page load
-        loadTickets();
+        loadTickets(); // Load tickets on page load
     </script>
 </body>
 </html>
