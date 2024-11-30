@@ -1,25 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Hamburger Menu</title>
-</head>
 <body>
-  <!-- Sidebar Tab (with folder tab design) -->
-  <div id="tab" onclick="toggleMenu()">&#10140;</div>  <!-- This is the folder tab arrow -->
-
   <!-- Sidebar -->
   <div id="sidebar">
+    <button id="close-btn" onclick="toggleMenu()">Close ×</button>
     <ul>
       <li><a href="#">Open Tickets</a></li>
       <li><a href="#">Resolved Tickets</a></li>
       <li><a href="#">Manage & Add Users</a></li>
-      <li><button id="close-btn" onclick="toggleMenu()">Close ×</button></li> <!-- Close at the bottom -->
     </ul>
   </div>
 
+  <!-- Tab to open the sidebar -->
+  <div id="tab" onclick="toggleMenu()">&#8594;</div>
+
   <script src="menu/menu-loader.js"></script>
 </body>
-</html>
