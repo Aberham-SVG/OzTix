@@ -1,80 +1,71 @@
-/* General Layout */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+/* General Reset */
+body, ul, li, a, button {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+/* Hamburger Icon */
+#hamburger-icon {
+  position: fixed;
+  top: 100px;
+  left: 150px;
+  z-index: 1000;
+  cursor: pointer;
+  background-color: #ae0b00;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 20px;
+  transition: transform 0.3s ease;
 }
 
 /* Sidebar */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: -250px;  /* Initially hidden off-screen */
-    width: 250px;
-    height: 100%;
-    background-color: #ae0b00;
-    transition: left 0.3s ease;
-    z-index: 10;
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Initially hidden */
+  width: 300px;
+  height: 100%;
+  background-color: #ae0b00;
+  color: #fff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+  padding-top: 20px;
+  transition: left 0.3s ease;
+  z-index: 999;
 }
 
-.sidebar.open {
-    left: 0; /* When 'open' class is added, the sidebar slides in */
+/* Sidebar Content */
+#sidebar ul {
+  padding: 20px;
 }
 
-/* Sidebar Menu Items */
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+#sidebar ul li {
+  margin: 15px 0;
 }
 
-.sidebar ul li {
-    padding: 20px;
-    text-align: left;
+#sidebar ul li a {
+  color: #fff;
+  font-size: 18px;
 }
 
-.sidebar ul li a,
-.sidebar ul li button {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    display: block;
-    background: transparent;
-    border: none;
-    width: 100%;
+#close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  margin-left: 20px;
+  cursor: pointer;
+  text-align: left;
 }
 
-.sidebar ul li a:hover,
-.sidebar ul li button:hover {
-    background-color: #cc0a00; /* Slightly lighter hover effect */
+/* Active States */
+#sidebar.open {
+  left: 0;
 }
 
-/* Hamburger Button */
-.hamburger {
-    font-size: 30px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    position: fixed;
-    top: 100px; /* Distance from the top of the page */
-    left: 150px; /* Distance from the left */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Floating effect */
-    border-radius: 50%;
-    z-index: 15;
-    transition: left 0.3s ease; /* Smooth transition when the button moves */
-}
-
-/* Button and Sidebar Interaction */
-.sidebar.open ~ .hamburger {
-    left: 250px; /* Moves the hamburger button with the sidebar */
-}
-
-/* Close Button */
-.close-btn {
-    color: white;
-    background-color: #cc0a00;
-    padding: 10px;
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
+#hamburger-icon.move {
+  transform: translateX(300px); /* Moves with the sidebar */
 }
