@@ -24,7 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (sidebar && icon) {
             console.log('Toggling menu...');
             sidebar.classList.toggle('open');
-            icon.classList.toggle('move');
+            if (sidebar.classList.contains('open')) {
+                icon.style.display = 'none';  // Hide the hamburger icon when the sidebar is open
+            } else {
+                icon.style.display = 'block';  // Show the hamburger icon when the sidebar is closed
+            }
         } else {
             console.error('Sidebar or icon is missing.');
         }
