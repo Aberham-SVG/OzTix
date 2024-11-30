@@ -7,8 +7,18 @@
   <title>Hamburger Menu</title>
 </head>
 <body>
-  <!-- Menu content will be injected dynamically by JavaScript (menu-loader.js) -->
-  <div id="menu-placeholder"></div>
+  <!-- Sidebar Tab -->
+  <div id="tab" onclick="toggleMenu()">&#8594;</div>  <!-- This is the arrow tab -->
+
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <button id="close-btn" onclick="toggleMenu()">Close ×</button>
+    <ul>
+      <li><a href="#">Open Tickets</a></li>
+      <li><a href="#">Resolved Tickets</a></li>
+      <li><a href="#">Manage & Add Users</a></li>
+    </ul>
+  </div>
 
   <script src="menu/menu-loader.js"></script>
 </body>
