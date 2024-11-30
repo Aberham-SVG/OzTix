@@ -1,22 +1,20 @@
-/* Style for the tab (the folder tab on the left) */
+/* Style for the tab (the arrow on the left) */
 #tab {
     position: fixed;
-    left: -20px;  /* Positioned just outside the sidebar initially */
+    left: 0;
     top: 50%;
     transform: translateY(-50%);  /* Center it vertically */
-    background-color: #ae0b00;  /* Your specific red color */
+    background-color: #ae0b00;  /* Tab color */
     color: white;
     padding: 15px;
-    font-size: 22px;
     cursor: pointer;
+    font-size: 30px;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
-    z-index: 100; /* Make sure the tab is above the sidebar */
 }
 
-/* Hover effect on the tab */
 #tab:hover {
     background-color: #8a0900;  /* Hover effect */
 }
@@ -24,21 +22,19 @@
 /* Sidebar styles */
 #sidebar {
     position: fixed;
-    left: -250px; /* Initially hidden off-screen */
+    left: -250px; /* Initially hidden */
     top: 0;
     height: 100%;
     width: 250px;
     background-color: #333;
     transition: left 0.3s ease;
     padding-top: 20px;
-    z-index: 99; /* Sidebar behind the tab */
 }
 
 #sidebar.open {
     left: 0; /* Move sidebar into view */
 }
 
-/* Sidebar Menu List Styles */
 #sidebar ul {
     list-style-type: none;
     padding: 0;
@@ -55,17 +51,12 @@
     display: block;
 }
 
-#sidebar #close-btn {
+#close-btn {
     background: none;
     color: white;
     border: none;
     font-size: 20px;
     cursor: pointer;
-    margin-top: auto;  /* Push to the bottom of the sidebar */
+    margin: 10px;
     display: block;
-}
-
-/* When sidebar is open, tab moves with it */
-#sidebar.open + #tab {
-    left: 250px;  /* Align the tab with the sidebar */
 }
