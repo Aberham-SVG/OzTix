@@ -7,16 +7,16 @@
   <title>Hamburger Menu</title>
 </head>
 <body>
-  <!-- Sidebar Tab -->
-  <div id="tab" onclick="toggleMenu()">&#8594;</div>  <!-- This is the arrow tab -->
+  <!-- Sidebar Tab (with folder tab design) -->
+  <div id="tab" onclick="toggleMenu()">&#10140;</div>  <!-- This is the folder tab arrow -->
 
   <!-- Sidebar -->
   <div id="sidebar">
-    <button id="close-btn" onclick="toggleMenu()">Close ×</button>
     <ul>
       <li><a href="#">Open Tickets</a></li>
       <li><a href="#">Resolved Tickets</a></li>
       <li><a href="#">Manage & Add Users</a></li>
+      <li><button id="close-btn" onclick="toggleMenu()">Close ×</button></li> <!-- Close at the bottom -->
     </ul>
   </div>
 
