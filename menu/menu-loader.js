@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM loaded. Initializing the menu.');
-
     // Function to toggle the sidebar and tab visibility
     const toggleMenu = () => {
         const sidebar = document.getElementById('sidebar');
@@ -19,12 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Ensure the tab element exists before attaching the event listener
+    // Attach event listener for tab click
     const tab = document.getElementById('tab');
     if (tab) {
         tab.addEventListener('click', toggleMenu);
-        console.log('Tab initialized successfully.');
     } else {
-        console.error('Failed to initialize the tab: tab element not found.');
+        console.error('Failed to initialize the tab.');
     }
 });
