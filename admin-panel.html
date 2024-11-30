@@ -6,7 +6,6 @@
     <title>Admin Panel</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <!-- Link to the menu CSS -->
     <link rel="stylesheet" href="menu/menu.css">
 </head>
 <body>
@@ -37,59 +36,17 @@
         </div>
     </div>
 
-    <!-- Include the menu placeholder -->
     <div id="menu-placeholder"></div>
 
-    <!-- Hamburger Menu JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Dynamically add the menu
-            const placeholder = document.getElementById('menu-placeholder');
+    <!-- Load Hamburger Menu Script -->
+    <script src="menu/menu-loader.js"></script>
 
-            if (placeholder) {
-                placeholder.innerHTML = `
-                    <div id="hamburger-icon" onclick="toggleMenu()">☰</div>
-                    <div id="sidebar">
-                        <button id="close-btn" onclick="toggleMenu()">Close ×</button>
-                        <ul>
-                            <li><a href="#">Open Tickets</a></li>
-                            <li><a href="#">Resolved Tickets</a></li>
-                            <li><a href="#">Manage & Add Users</a></li>
-                        </ul>
-                    </div>
-                `;
-            } else {
-                console.warn('Menu placeholder not found.');
-            }
-
-            // Attach event listeners
-            const icon = document.getElementById('hamburger-icon');
-            const sidebar = document.getElementById('sidebar');
-
-            if (icon && sidebar) {
-                icon.addEventListener('click', toggleMenu);
-            } else {
-                console.error('Failed to initialize the hamburger menu.');
-            }
-        });
-
-        // Function to toggle the menu
-        function toggleMenu() {
-            const sidebar = document.getElementById('sidebar');
-            const icon = document.getElementById('hamburger-icon');
-            if (sidebar && icon) {
-                sidebar.classList.toggle('open');
-                icon.classList.toggle('move');
-            }
-        }
-    </script>
-
-    <!-- Supabase Script -->
+    <!-- Load Supabase Script -->
     <script type="module">
         import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
         const SUPABASE_URL = 'https://kxlnngklfrzneluptrxo.supabase.co';
-        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt4bG5uZ2tsZnJ6bmVsdXB0cnhvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzIyMDEyMDEsImV4cCI6MjA0Nzc3NzIwMX0.LICyDb7J1Dip6jN2A6dADPaSQIa44SHm5Lc3n4lx3ck';
+        const SUPABASE_KEY = 'YOUR_SUPABASE_KEY';
         const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
         const ticketTableBody = document.getElementById('ticketTableBody');
