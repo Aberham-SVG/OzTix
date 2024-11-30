@@ -17,11 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Attach event listener for tab click
+    // Ensure the tab element exists before attaching the event listener
     const tab = document.getElementById('tab');
     if (tab) {
         tab.addEventListener('click', toggleMenu);
     } else {
-        console.error('Failed to initialize the tab.');
+        console.error('Failed to initialize the tab: tab element not found.');
     }
 });
