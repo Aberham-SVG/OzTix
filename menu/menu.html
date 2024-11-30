@@ -1,17 +1,25 @@
-<!-- Hamburger Menu HTML (menu.html) -->
-<div id="menu-container">
-    <!-- Hamburger Icon -->
-    <button class="hamburger" id="hamburger">
-        <i class="fa fa-bars"></i>
-    </button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Hamburger Menu</title>
+</head>
+<body>
+  <!-- Hamburger Menu Icon -->
+  <div id="hamburger-icon" onclick="toggleMenu()">☰</div>
 
-    <!-- Sidebar -->
-    <div id="sidebar" class="sidebar">
-        <ul>
-            <li><a href="#" id="open-tickets-link">Open Tickets</a></li>
-            <li><a href="#" id="resolved-tickets-link">Resolved Tickets</a></li>
-            <li><a href="#" id="manage-users-link">Manage & Add Users</a></li>
-            <li><button id="close-sidebar" class="close-btn">Close</button></li>
-        </ul>
-    </div>
-</div>
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <button id="close-btn" onclick="toggleMenu()">Close ×</button>
+    <ul>
+      <li><a href="#">Open Tickets</a></li>
+      <li><a href="#">Resolved Tickets</a></li>
+      <li><a href="#">Manage & Add Users</a></li>
+    </ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
