@@ -1,13 +1,28 @@
-/* Example CSS for the sidebar and hamburger icon */
-#hamburger-icon {
+/* Style for the tab (the arrow on the left) */
+#tab {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);  /* Center it vertically */
+    background-color: #ae0b00;  /* Tab color */
+    color: white;
+    padding: 15px;
     cursor: pointer;
     font-size: 30px;
-    transition: opacity 0.3s ease; /* Smooth transition for hiding/showing */
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
 }
 
+#tab:hover {
+    background-color: #8a0900;  /* Hover effect */
+}
+
+/* Sidebar styles */
 #sidebar {
     position: fixed;
-    left: -250px; /* Initially hidden off-screen */
+    left: -250px; /* Initially hidden */
     top: 0;
     height: 100%;
     width: 250px;
@@ -17,7 +32,7 @@
 }
 
 #sidebar.open {
-    left: 0; /* Bring sidebar into view */
+    left: 0; /* Move sidebar into view */
 }
 
 #sidebar ul {
