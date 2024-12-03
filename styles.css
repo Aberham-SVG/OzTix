@@ -92,3 +92,34 @@ table tbody tr:hover {
 .delete-btn i:hover {
     color: #c62828;
 }
+
+/* Header styles */
+.header {
+    background-color: #ae0b00; /* Deep red */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-bottom: 3px solid #800000;
+}
+
+/* Footer styles */
+.footer {
+    background-color: #ae0b00; /* Deep red */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1rem;
+    font-weight: normal;
+    border-top: 3px solid #800000;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Adjust body padding to avoid content overlap with the footer */
+body {
+    padding-bottom: 60px;
+}
