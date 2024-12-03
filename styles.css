@@ -107,19 +107,17 @@ table tbody tr:hover {
 /* Footer styles */
 .footer {
     background-color: #ae0b00; /* Deep red */
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    font-size: 1rem;
-    font-weight: normal;
-    border-top: 3px solid #800000;
-    position: fixed;
-    bottom: 0;
-    left: 0; /* Ensures it starts at the left edge of the viewport */
-    right: 0; /* Ensures it spans to the right edge */
-    width: 100%; /* Full width of the viewport */
-    margin: 0; /* Removes any unintended margins */
-    z-index: 1000;
+    color: white; /* Text color */
+    text-align: center; /* Center-align the text */
+    padding: 15px 0; /* Top and bottom padding */
+    font-size: 1rem; /* Adjust font size */
+    position: fixed; /* Fixed at the bottom of the viewport */
+    bottom: 0; /* Align to the bottom of the screen */
+    left: 0; /* Start at the left edge of the viewport */
+    right: 0; /* End at the right edge of the viewport */
+    width: 100%; /* Ensure it spans the full width */
+    margin: 0; /* Remove unintended offsets */
+    z-index: 1000; /* Ensure it is above other elements */
 }
 
 /* Adjust body padding to avoid content overlap with the footer */
