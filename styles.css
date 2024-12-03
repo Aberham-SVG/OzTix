@@ -109,13 +109,16 @@ table tbody tr:hover {
     background-color: #ae0b00; /* Deep red */
     color: white;
     text-align: center;
-    padding: 0px 0;
+    padding: 15px 0;
     font-size: 1rem;
     font-weight: normal;
     border-top: 3px solid #800000;
     position: fixed;
     bottom: 0;
-    width: 100%;
+    left: 0; /* Ensures it starts at the left edge of the viewport */
+    right: 0; /* Ensures it spans to the right edge */
+    width: 100%; /* Full width of the viewport */
+    margin: 0; /* Removes any unintended margins */
     z-index: 1000;
 }
 
