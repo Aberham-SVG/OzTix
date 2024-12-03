@@ -92,3 +92,29 @@ table tbody tr:hover {
 .delete-btn i:hover {
     color: #c62828;
 }
+/* General styles for header and footer */
+.header, .footer {
+    background-color: #ae0b00; /* Adjust the color as needed */
+    color: white;             /* Ensure the text is readable */
+    text-align: center;       /* Center-align the content */
+    padding: 20px 0;          /* Add vertical padding */
+    font-family: Arial, sans-serif; /* Use a clean font */
+}
+
+/* Header-specific styles */
+.header {
+    border-bottom: 3px solid #800000; /* Optional border for separation */
+}
+
+/* Footer-specific styles */
+.footer {
+    border-top: 3px solid #800000; /* Optional border for separation */
+    position: fixed;               /* Keep footer at the bottom */
+    bottom: 0;                     /* Align it to the bottom of the viewport */
+    width: 100%;                   /* Full-width footer */
+}
+
+/* Optional: Adjust body padding to prevent overlap */
+body {
+    padding-bottom: 60px; /* Adjust based on footer height */
+}
